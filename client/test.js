@@ -6,6 +6,7 @@ $(function(){
   $("#whoCall").hide();
   $("#hangup").hide();
 
+  //presence
   server.on("presence", function(user){
     if (user.online) {
       console.log(user.name + " is online.");

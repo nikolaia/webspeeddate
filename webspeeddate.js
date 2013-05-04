@@ -1,6 +1,12 @@
 var holla = require('holla');
 var express = require('express');
 var app = express();
+
+app.get('/:file', function(req, res){
+	var file = req.params.file
+	res.sendfile("./client/"+file);
+});
+
 var server = require('http').createServer(app).listen(8180);
 var rtc = holla.createServer(server);
 
