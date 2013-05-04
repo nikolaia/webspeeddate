@@ -1,57 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-    <script type="text/javascript" src="js/holla.js"></script>
-    <script type="text/javascript" src="js/ang_holla.js"></script>
-
-    <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <title>Holla Test</title>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="holla.js"></script>
+    <script src="test.js"></script>
+    <link rel="stylesheet" href="effects.css">
     <style>
       body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        height: 100%;
+        width: 100%;
+        background-color: #333;
+      }
+
+      .them {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+      }
+      
+      .video-container {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
       }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
   </head>
-
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul> 
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+    <input id="whoAmI" type="text" placeholder="Who are you?"></input>
+    <input id="whoCall" type="text" placeholder="Who do you want to call?"></input>
+    <button id="hangup">Hangup</button>
+    <br/>
+    <div class="video-container">
+      <video class="them" autoplay="true"></video>
+      <video class="me rtc-pip" autoplay="true" muted="true"></video>
     </div>
-
-    <div class="container">
-
-      <h1>Holla testing</h1>
-      <div ng-controller="HollaCtrl">
-        <p>{{Holla.recieve}}</p>
-        <p>{{Holla.send}}</p>
-      </div>
-
-    </div> 
-
   </body>
 </html>
