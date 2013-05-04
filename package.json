@@ -9,7 +9,8 @@
     "author": "Nikolai <nikolai@stasj.com>",
     "contributors": [],
     "dependencies": {
-        "holla": ">= 0.6.2"
+        "holla": ">= 0.6.2",
+        "express": ">= 3.2.2"
     },
     "engine": "node 0.10.5",
     "main": "webspeeddate.js",
