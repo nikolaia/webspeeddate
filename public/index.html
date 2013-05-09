@@ -2,45 +2,67 @@
 <html lang="en">
   <head>
     <title>Holla Test</title>
-    <link rel="stylesheet" href="effects.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <style>
-      body {
-        height: 100%;
-        width: 100%;
-        background-color: #333;
-      }
-
-      .them {
-        width: 100%;
-        max-width: 100%;
-        max-height: 100%;
-        height: auto;
-      }
-      
-      .video-container {
-        position: relative;
+      #presence-log {
+        background-color: #fff;
+        border: 1px solid black;
+        height: 200px;
         overflow: hidden;
-        height: 100%;
-        width: 100%;
-        max-width: 100%;
-        max-height: 100%;
       }
     </style>
   </head>
   <body>
-    <input id="whoAmI" type="text" placeholder="Who are you?"></input>
-    <input id="whoCall" type="text" placeholder="Who do you want to call?"></input>
-    <button id="hangup">Hangup</button>
-    <br/>
-    <div class="video-container">
-      <video class="them" autoplay="true"></video>
-      <video class="me rtc-pip" autoplay="true" muted="true"></video>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Webspeeddate</a>
+          <div class="nav-collapse collapse">
+            <form class="navbar-form pull-right">
+              <input id="username"class="span2" type="text" placeholder="Username">
+              <button id="connect" type="submit" class="btn">Connect</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
 
+    <br/><br><br/>
+    <div class="container">
+
+      <div id="conferance" class="row">
+
+        <div class="span4">
+          <h2 id="me"></h2>
+          <video id="meVideo" width="300" class="rtc-pip" autoplay="true" muted="true"></video>
+        </div>
+
+      </div>
+
+      <div class="hero-unit">
+        <div id="presence-log">
+        </div>
+        <input id="chatbox"/><button id="chatboxSend" type="submit" class="btn">Send</button>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
     <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script type="text/javascript" src="holla.js"></script>
-    <script type="text/javascript" src="test.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/holla.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
   </body>
 </html>
