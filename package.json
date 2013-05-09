@@ -10,7 +10,8 @@
     "contributors": [],
     "dependencies": {
         "holla": ">= 0.6.2",
-        "express": ">= 3.2.2"
+        "express": ">= 3.2.2",
+        "oauth": ">= 0.9.10"
     },
     "engine": "node 0.10.5",
     "main": "webspeeddate.js",
