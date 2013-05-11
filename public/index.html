@@ -2,14 +2,32 @@
 <html lang="en">
   <head>
     <title>Holla Test</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style type="text/css">
       #presence-log {
         background-color: #fff;
-        border: 1px solid black;
+        border: 1px solid #ccc;
         height: 200px;
-        overflow: hidden;
+        overflow-y: scroll;
       }
+      
+      .message {
+        margin: 1px 5px;
+        padding: 5px;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+      }
+      .chat-message {
+      }
+
+      .chat-from {
+        color: #802c59;
+      }
+
+      video {
+        border-radius: 5px;
+      }
+
     </style>
   </head>
   <body>
@@ -23,12 +41,23 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="#">Webspeeddate</a>
-          <div class="nav-collapse collapse">
+          <div class="nav-collapse collapse" id="loginForm">
             <form class="navbar-form pull-right">
               <input id="username"class="span2" type="text" placeholder="Username">
               <button id="connect" type="submit" class="btn">Connect</button>
             </form>
           </div><!--/.nav-collapse -->
+          <div class="btn-group pull-right" id="userMenu" style="display:none;">
+            <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> <span id="userMenuUsername"></span></a>
+            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+              <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+              <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="i"></i> Make admin</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -40,15 +69,22 @@
 
         <div class="span4">
           <h2 id="me"></h2>
-          <video id="meVideo" width="300" class="rtc-pip" autoplay="true" muted="true"></video>
+          <video id="meVideo" width="320" class="rtc-pip" autoplay="true" muted="true"></video>
         </div>
 
       </div>
 
-      <div class="hero-unit">
+      <div class="well">
         <div id="presence-log">
         </div>
-        <input id="chatbox"/><button id="chatboxSend" type="submit" class="btn">Send</button>
+        <br/>
+        <form class="form-search">
+          <div class="input-prepend">
+            <span class="add-on">@</span>
+            <input id="chatbox" class="span4" type="text" placeholder="Enter your message here...">
+          </div>
+          <button id="chatboxSend" type="submit" class="btn">Send</button>
+        </form>
       </div>
 
       <hr>

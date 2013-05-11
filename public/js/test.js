@@ -3,7 +3,8 @@ var user = new Object();
 user.conferance = new Array();
 
 function rtcLog(message) {
-  $("#presence-log").prepend("<div>"+message+"</div>")
+  $("#presence-log").append("<div class=\"message\">"+message+"</div>");
+  $("#presence-log").scrollTop($("#presence-log")[0].scrollHeight);
 }
 
 function startRTC(name) {
@@ -17,6 +18,10 @@ function startRTC(name) {
         holla.pipe(stream, $("#meVideo"));
 
         server.register(name, function(worked) {
+
+          $("#loginForm").hide();
+          $("#userMenuUsername").html(user.name);
+          $("#userMenu").show();
           
           //set handler on call
           server.on("call", function(call) {
@@ -47,13 +52,11 @@ function startRTC(name) {
 
             if (user.online) {
 
-              rtcLog(user.name + " is online.")
+              rtcLog(user.name + " is online. Connecting.")
 
               if (!user.online || $("#"+user.name).length != 0) return;
 
               var call = server.call(user.name);
-
-              rtcLog("Calling "+user.name);
 
               call.addStream(stream);
 
@@ -68,7 +71,7 @@ function startRTC(name) {
               });
 
             } else {
-              rtcLog(user.name + " went offline.")
+              rtcLog(user.name + " went offline. Disconnecting.")
               removeUser(user.name);
             }
 
@@ -84,7 +87,7 @@ function startRTC(name) {
 }
 
 function addUser(username) {
-  var item = $('<div class="span4"><h2 id="'+username+'">'+username+'</h2><video width="300" id="'+username+'Video" autoplay="true"></video></div>');
+  var item = $('<div class="span4"><h2 id="'+username+'">'+username+'</h2><video width="320" id="'+username+'Video" autoplay="true"></video></div>');
   $("#conferance").append(item);
   var result = $("#"+username+"Video");
   user.conferance.push(username);
@@ -102,12 +105,13 @@ $(function(){
     e.preventDefault();
     user.name = $("#username").val();
     startRTC(user.name);
-    $("#connect").hide();
   });
 
-  $("#chatboxSend").click(function() {
+  $("#chatboxSend").click(function(e) {
+    e.preventDefault();
     var message = $("#chatbox").val();
-    rtcLog(user.name + ": "+ message);
+    $("#chatbox").val("");
+    rtcLog("<span class=\"chat-from\">@"+user.name + "</span>:&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"chat-message\">"+ message+"</span>");
     $.each(user.conferance, function(index, value) {
       server.chat(value, message);
     });
