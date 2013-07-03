@@ -31,8 +31,7 @@ app.configure(function(){
 
 //using http to forward to https, reason is we need another certificate for interncommunication with iis, i have no idea how to set that up!
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write("<script> window.location = 'https://test.webspeeddate.net:8180'; </script>");
+  res.writeHead(301, {"Location": "https://test.webspeeddate.net:8180"});
   res.end();
 }).listen(8181);
 
