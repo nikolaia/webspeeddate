@@ -1,0 +1,19 @@
+#presence-log {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.message {
+  margin: 1px 5px;
+  padding: 5px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+.chat-message {
+}
+
+.chat-from {
+  color: #802c59;
+}
