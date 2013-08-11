@@ -1852,7 +1852,7 @@ Polling.prototype.write = function(packets){
 Polling.prototype.uri = function(){
   var query = this.query || {};
   var schema = this.secure ? 'https' : 'http';
-  var port = '';
+  var port = ':8180'; //added port because of serverfarm certificate problems
 
   // cache busting is forced for IE / android / iOS6 ಠ_ಠ
   if (global.ActiveXObject || util.ua.android || util.ua.ios6 ||
