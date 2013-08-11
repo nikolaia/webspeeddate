@@ -16,17 +16,15 @@ var options = {
 };
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 8180);
-  //app.set('views', __dirname + '/views');
-  //app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
-  app.use('public/js', express.static(path.join(__dirname, 'public/js')));
-  app.use('public/css', express.static(path.join(__dirname, 'public/css')));
+    app.set('port', process.env.PORT || 8180);
+    app.use(express.favicon());
+    app.use(express.logger('dev'));
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(path.join(__dirname, 'public')));
+    app.use('public/js', express.static(path.join(__dirname, 'public/js')));
+    app.use('public/css', express.static(path.join(__dirname, 'public/css')));
 });
 
 //using http to forward to https, reason is we need another certificate for interncommunication with iis, i have no idea how to set that up!

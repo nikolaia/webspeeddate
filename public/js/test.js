@@ -110,6 +110,7 @@ $(function(){
   $("#chatboxSend").click(function(e) {
     e.preventDefault();
     var message = $("#chatbox").val();
+    if (message.length == 0) return;
     $("#chatbox").val("");
     rtcLog("<span class=\"chat-from\">@"+user.name + "</span>:&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"chat-message\">"+ message+"</span>");
     $.each(user.conferance, function(index, value) {
